@@ -83,7 +83,7 @@ def build_forecast(
 
     try:
         model = Prophet(
-            yearly_seasonality=True,
+            yearly_seasonality=False,
             weekly_seasonality=False,
             daily_seasonality=False,
         )
