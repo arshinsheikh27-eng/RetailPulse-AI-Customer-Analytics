@@ -1,0 +1,32 @@
+{
+    "source_file": "data/processed/cleaned_retail.csv",
+    "customer_feature_file": "data/processed/customer_features.csv",
+    "reference_date": "2011-12-10",
+    "identified_customers_in_source": 4372,
+    "customers_with_eligible_purchases": 4339,
+    "customer_feature_rows": 4339,
+    "customer_feature_columns": 12,
+    "feature_columns": [
+        "CustomerID",
+        "FirstPurchaseDate",
+        "LastPurchaseDate",
+        "UniqueProductsPurchased",
+        "Frequency",
+        "Monetary",
+        "TotalUnitsPurchased",
+        "AverageOrderValue",
+        "RecencyDays",
+        "CustomerTenureDays",
+        "AverageItemsPerInvoice",
+        "ReturnOrCancellationLineCount"
+    ],
+    "purchase_filter": "CustomerID present, Quantity > 0, not a cancellation invoice, UnitPrice >= 0",
+    "recency_definition": "Days from last eligible purchase date to reference date",
+    "frequency_definition": "Count of distinct eligible purchase invoices per customer",
+    "monetary_definition": "Sum of Quantity * UnitPrice for eligible purchase lines",
+    "limitations": [
+        "RFM describes historical behavior and is not a churn prediction.",
+        "Returns and cancellation lines are counted separately, not subtracted from RFM monetary value.",
+        "The reference date is based on the dataset's final date."
+    ]
+}

@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.streamlit/
+mlruns/
+models/*.joblib
+models/*.pkl
+data/raw/*
+data/processed/customer_segments.csv
+data/processed/customer_churn_risk.csv
+data/processed/demand_forecast.csv
+data/processed/inventory_recommendations.csv
+*.log
+
+data/processed/cleaned_retail.csv
