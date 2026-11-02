@@ -1,0 +1,17 @@
+{
+    "source_file": "data\\raw\\Online Retail.xlsx",
+    "output_file": "data\\processed\\cleaned_retail.csv",
+    "original_row_count": 541909,
+    "exact_duplicate_rows_removed": 5268,
+    "rows_after_exact_deduplication": 536641,
+    "rows_removed_for_invalid_required_fields": 0,
+    "rows_with_missing_customer_id_preserved": 135037,
+    "rows_with_missing_description_preserved": 1454,
+    "cancellation_invoice_rows_preserved": 9251,
+    "negative_quantity_rows_preserved": 10587,
+    "zero_price_rows_preserved": 2510,
+    "negative_price_rows_preserved": 2,
+    "final_row_count": 536641,
+    "final_column_count": 21,
+    "cleaning_policy": "Remove exact duplicate rows only. Preserve cancellations, negative quantities, unusual prices, missing customer IDs, and missing descriptions. Add flags for downstream analysis."
+}

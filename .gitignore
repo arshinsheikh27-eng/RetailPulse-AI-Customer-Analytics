@@ -2,17 +2,24 @@
 # Python virtual environment
 .venv/
 
-# Python generated files
+# Python generated files and test cache
 __pycache__/
 *.py[cod]
+.pytest_cache/
 
 # Local environment and secrets
 .env
-.streamlit/secrets.toml
+.streamlit/
+.vscode/
 
-# Raw source data and large generated datasets
+# MLflow tracking data and logs
+mlruns/
+*.log
+
+# Raw source data and generated datasets
 data/raw/
 data/processed/*.csv
 
-# Local development files
-.vscode/
+# Generated model files
+models/*.joblib
+models/*.pkl

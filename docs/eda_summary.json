@@ -1,0 +1,18 @@
+{
+    "source_file": "data\\processed\\cleaned_retail.csv",
+    "source_rows": 536641,
+    "positive_sales_rows": 526052,
+    "positive_sales_value": 10642110.8,
+    "positive_units_sold": 5645017,
+    "distinct_invoices_in_positive_sales": 20726,
+    "distinct_identifiable_customers_in_positive_sales": 4339,
+    "average_positive_sales_invoice_value": 513.47,
+    "monthly_periods": 13,
+    "sales_definition": "Rows with Quantity > 0, non-cancellation invoice numbers, and UnitPrice >= 0. SalesValue = Quantity * UnitPrice. This is an analytical positive-sales measure, not audited accounting revenue.",
+    "charts": [
+        "monthly_sales_trend.png",
+        "top_products_by_sales.png",
+        "top_countries_by_sales.png",
+        "quantity_distribution.png"
+    ]
+}
