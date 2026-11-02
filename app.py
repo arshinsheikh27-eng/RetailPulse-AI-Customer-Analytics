@@ -623,6 +623,12 @@ elif page == "Customer Segmentation":
         c2.metric("Average recency", f"{avg_recency:,.1f} days")
         c3.metric("Average frequency", f"{avg_frequency:,.2f}")
         c4.metric("Average monetary value", money(avg_monetary, 2))
+        sil_score = segmented.attrs.get("silhouette_score")
+
+        if sil_score is not None:
+            st.metric("Silhouette Score", f"{sil_score:.3f}")
+        else:
+            st.info("Silhouette Score is unavailable for this clustering result.")
 
         left, right = st.columns(2)
 

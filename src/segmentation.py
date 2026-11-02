@@ -2,6 +2,7 @@
 import numpy as np
 import pandas as pd
 from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
 from sklearn.preprocessing import StandardScaler
 
 FEATURES = ["RecencyDays", "Frequency", "Monetary"]
@@ -16,6 +17,7 @@ def segment_customers(
 
     Returns a copy of the input DataFrame with Segment and SegmentName.
     """
+
     if customers.empty:
         raise ValueError("Customer data is empty.")
 
@@ -55,7 +57,15 @@ def segment_customers(
         random_state=42,
         n_init=10
     )
+
     cluster_ids = model.fit_predict(scaled)
+
+    # Calculate Silhouette Score when the clustering result is valid.
+    unique_labels = np.unique(cluster_ids)
+
+    score = None
+    if 1 < len(unique_labels) < len(scaled):
+        score = float(silhouette_score(scaled, cluster_ids))
 
     data["Segment"] = pd.Series(
         pd.NA, index=data.index, dtype="object"
@@ -71,6 +81,7 @@ def segment_customers(
     # Rank clusters using all three RFM dimensions:
     # lower recency is better; higher frequency and monetary are better.
     ranks = pd.DataFrame(index=summary.index)
+
     ranks["RecencyScore"] = summary["RecencyDays"].rank(
         ascending=False, pct=True
     )
@@ -80,6 +91,7 @@ def segment_customers(
     ranks["MonetaryScore"] = summary["Monetary"].rank(
         ascending=True, pct=True
     )
+
     ranks["OverallScore"] = ranks[
         ["RecencyScore", "FrequencyScore", "MonetaryScore"]
     ].mean(axis=1)
@@ -87,6 +99,7 @@ def segment_customers(
     ordered_segments = ranks["OverallScore"].sort_values().index.tolist()
 
     names = ["Lapsed", "At Risk", "Engaged", "Recent/Active"]
+
     # Adapt names when the selected cluster count differs from four.
     if len(ordered_segments) == 2:
         names = ["Lower Engagement", "Higher Engagement"]
@@ -100,4 +113,8 @@ def segment_customers(
     label_map = dict(zip(ordered_segments, names))
 
     data["SegmentName"] = data["Segment"].map(label_map)
+
+    # Store the Silhouette Score for dashboard display.
+    data.attrs["silhouette_score"] = score
+
     return data
