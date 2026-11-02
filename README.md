@@ -92,36 +92,35 @@ For further details, refer to the data dictionary, cleaning methodology, and ana
 
 ---
 
+
 ## Project Structure
 
 ```text
 RetailPulse-AI-Customer-Analytics/
-â”‚
-â”œâ”€â”€ .github/                # GitHub workflow/configuration files
-â”œâ”€â”€ api/                    # FastAPI application
-â”œâ”€â”€ data/
-â”‚   â””â”€â”€ processed/          # Processed retail dataset
-â”œâ”€â”€ docs/
-â”‚   â”œâ”€â”€ images/             # Dashboard screenshots
-â”‚   â”œâ”€â”€ data_dictionary.md
-â”‚   â”œâ”€â”€ data_cleaning_methodology.md
-â”‚   â””â”€â”€ Other analysis documentation and EDA outputs
-â”œâ”€â”€ notebooks/              # Exploratory analysis notebooks
-â”œâ”€â”€ reports/                # Generated analytical summaries
-â”œâ”€â”€ scripts/                # Utility scripts
-â”œâ”€â”€ src/                    # Data preparation and analytics modules
-â”œâ”€â”€ tests/                  # Automated tests
-â”‚
-â”œâ”€â”€ app.py                  # Streamlit dashboard entry point
-â”œâ”€â”€ Dockerfile              # Container configuration
-â”œâ”€â”€ requirements.txt        # Python dependencies
-â”œâ”€â”€ run_api.bat             # API startup helper
-â”œâ”€â”€ run_dashboard.bat       # Dashboard startup helper
-â”œâ”€â”€ run_tests.bat           # Test runner
-â””â”€â”€ setup.bat               # Windows setup helper
+|
+|-- .github/                # GitHub workflow/configuration files
+|-- api/                    # FastAPI application
+|-- data/
+|   |-- processed/          # Processed retail dataset
+|-- docs/
+|   |-- images/             # Dashboard screenshots
+|   |-- data_dictionary.md
+|   |-- data_cleaning_methodology.md
+|   |-- Analysis documentation and EDA outputs
+|-- notebooks/              # Exploratory analysis notebooks
+|-- reports/                # Generated analytical summaries
+|-- scripts/                # Utility scripts
+|-- src/                    # Data preparation and analytics modules
+|-- tests/                  # Automated tests
+|
+|-- app.py                  # Streamlit dashboard entry point
+|-- Dockerfile              # Container configuration
+|-- requirements.txt        # Python dependencies
+|-- run_api.bat             # API startup helper
+|-- run_dashboard.bat       # Dashboard startup helper
+|-- run_tests.bat           # Test runner
+|-- setup.bat               # Windows setup helper
 ```
-
----
 
 ## Installation and Local Setup
 
